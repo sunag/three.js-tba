@@ -34,9 +34,10 @@ export default class Code {
 		return `// Three.js Binary Animation(TBA) Loader Example
 
 // Load the GLB model
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 // const glb = await new GLTFLoader().loadAsync( './model.glb' );
 
-import TBALoader from 'three-tba';
+import { TBALoader } from 'three-tba';
 
 const loader = new TBALoader();
 const tba = await loader.loadAsync( './animation.tba' );
@@ -44,7 +45,7 @@ const tba = await loader.loadAsync( './animation.tba' );
 // The animation clip
 const clip = tba.clip;
 
-// The skinned mesh
+// The SkinnedMesh of the model
 const readyPlayerTarget = glb.scene.children[ 0 ].children[ 1 ];
 
 // Create or reuse an AnimationMixer
