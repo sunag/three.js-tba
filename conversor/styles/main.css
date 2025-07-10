@@ -1,0 +1,322 @@
+/* Dropzone styles */
+.dropzone-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(76, 175, 80, 0.12);
+  z-index: 3;
+  transition: background 0.2s;
+}
+
+/* Active state for dropzone overlay */
+.dropzone.dropzone-active .dropzone-overlay {
+  display: flex;
+}
+
+/* Make the upload icon large */
+.dropzone-upload-icon {
+  font-size: 7rem;
+  color: #4caf50;
+  display: none;
+  transition: color 0.2s;
+  z-index: 4;
+}
+
+.dropzone.dropzone-active .dropzone-upload-icon {
+  display: block;
+}
+
+.dropzone {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 0;
+  background: rgba(76, 175, 80, 0.05);
+  transition: border-color 0.2s, background 0.2s, opacity 0.2s;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dropzone.dropzone-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* Centralize icon/content inside dropzone-content */
+.dropzone-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+.dropzone.dragover {
+	border: 2px dashed #7b7b7b;
+	background: rgba(255, 179, 0, 0.08);
+}
+.dropzone-text {
+	color: #4caf50;
+	font-size: 1.1em;
+	margin-bottom: 12px;
+	pointer-events: none;
+	user-select: none;
+	font-weight: 600;
+	text-align: center;
+	z-index: 3;
+}
+.canvas3d {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+/* View toggle switch styled as player */
+.view-toggle {
+	position: absolute;
+	top: 24px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+	background: #1d1d1d90;
+	border-radius: 8px;
+	overflow: hidden;
+	min-width: 180px;
+	min-height: 32px;
+	z-index: 10;
+	border: 1px solid #232323;
+	box-sizing: border-box;
+}
+
+.view-toggle-switch {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: calc(50% - 2px);
+	height: calc(100% - 4px);
+	background: #333;
+	border-radius: 5px;
+	transition: transform 0.22s cubic-bezier(.4, 0, .2, 1), background 0.2s;
+	z-index: 1;
+	border: none;
+	box-sizing: border-box;
+}
+
+.view-toggle.switch-code .view-toggle-switch {
+	transform: translateX(100%);
+}
+
+.view-toggle.switch-3d .view-toggle-switch {
+	transform: translateX(0);
+}
+
+.view-btn {
+	border: none;
+	background: none;
+	width: 50%;
+	height: 32px;
+	padding: 0;
+	font-size: 0.82rem;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: #888;
+	cursor: pointer;
+	transition: color 0.2s;
+	z-index: 2;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background: none;
+	text-transform: uppercase;
+	line-height: 1;
+	min-width: 0;
+	min-height: 0;
+	flex: 1 1 0;
+	/* Fix for vertical and horizontal centering */
+	box-sizing: border-box;
+}
+
+.view-btn.active {
+	color: #fff;
+}
+
+.view-btn:not(.active):hover {
+	color: #aaa;
+}
+
+body {
+	margin: 0;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background: #121212;
+	color: #f0f0f0;
+	font-weight: 400;
+}
+
+:root {
+	--tp-base-background-color: hsla(0, 0%, 0%, 0.00);
+	--tp-base-shadow-color: hsla(0, 0%, 0%, 0.0);
+	--tp-button-background-color: hsla(0, 0%, 20%, 1.00);
+	--tp-button-background-color-active: hsla(0, 0%, 40%, 1.00);
+	--tp-button-background-color-focus: hsla(0, 0%, 30%, 1.00);
+	--tp-button-background-color-hover: hsla(0, 0%, 30%, 1.00);
+	--tp-button-foreground-color: hsla(0, 0%, 70%, 1.00);
+	--tp-container-background-color: hsla(0, 0%, 20%, 1.00);
+	--tp-container-background-color-active: hsla(0, 0%, 20%, 1.00);
+	--tp-container-background-color-focus: hsla(0, 0%, 20%, 1.00);
+	--tp-container-background-color-hover: hsla(0, 0%, 15%, 1.00);
+	--tp-container-foreground-color: hsla(0, 0%, 50%, 1.00);
+	--tp-groove-foreground-color: hsla(0, 0%, 10%, 1.00);
+	--tp-input-background-color: hsla(0, 0%, 20%, 1.00);
+	--tp-input-background-color-active: hsla(0, 0%, 20%, 1.00);
+	--tp-input-background-color-focus: hsla(0, 0%, 30%, 1.00);
+	--tp-input-background-color-hover: hsla(0, 0%, 25%, 1.00);
+	--tp-input-foreground-color: hsla(0, 0%, 80%, 1.00);
+	--tp-label-foreground-color: hsla(0, 0%, 80%, 1.00);
+	--tp-monitor-background-color: hsla(0, 0%, 8%, 1.00);
+	--tp-monitor-foreground-color: hsla(0, 0%, 48%, 1.00);
+}
+
+main {
+	flex: 1;
+	display: flex;
+	overflow: hidden;
+}
+
+.canvas-container {
+	flex: 1;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+}
+
+.canvas3d-container {
+	flex: 1;
+	position: relative;
+	z-index: 1;
+	height: 100vh;
+	min-width: 0;
+	display: flex;
+	filter: drop-shadow(0 8px 32px rgba(0,0,0,0.22)) drop-shadow(0 2px 8px rgba(0,0,0,0.13));
+}
+
+canvas {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+	z-index: 1;
+	max-width: 100%;
+	max-height: 100%;
+	box-sizing: border-box;
+}
+
+.panel-container {
+	width: 300px;
+	min-width: 260px;
+	max-width: 100vw;
+	background: rgba(30, 30, 30, 0.95);
+	/* mesma cor do player */
+	height: 100vh;
+	box-shadow: -2px 0 8px #000a;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: flex-start;
+	z-index: 10;
+	position: relative;
+}
+
+.player-container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(30, 30, 30, 0.95);
+	display: flex;
+	align-items: center;
+	padding: 0.7rem 1.2rem;
+	gap: 1rem;
+	border-top: 1px solid #222;
+	z-index: 2;
+}
+
+.player-btn {
+	background: #333;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	width: 36px;
+	height: 36px;
+	font-size: 1.2rem;
+	cursor: pointer;
+	transition: background 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+}
+
+.player-btn:hover {
+	background: #007bff;
+}
+
+.timeline-container {
+	flex: 1;
+	display: flex;
+	align-items: center;
+}
+
+#timeline {
+	width: 100%;
+	accent-color: #007bff;
+	height: 4px;
+	background: #222;
+	border-radius: 2px;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.tba-description {
+	text-align: center;
+	color: #8e8e8e;
+	font-size: 0.7em;
+	width: 100%;
+	position: absolute;
+	top: 70px;
+	pointer-events: none;
+	filter: drop-shadow(0 4px 16px rgba(0,0,0,0.18)) drop-shadow(0 1.5px 4px rgba(0,0,0,1));
+	z-index: 2;
+}
+
+/* Code container: abaixo da descrição, até o painel, altura até o player, largura até o painel */
+.code-container {
+	position: fixed;
+	left: 0;
+	width: calc(100% - 300px);
+	height: calc(100vh - 100px);
+	top: 100px;
+	bottom: 70px;
+	z-index: 2;
+}

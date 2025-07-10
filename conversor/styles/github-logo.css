@@ -1,0 +1,23 @@
+/*
+ * GitHub logo button for top-right corner
+ */
+.github-logo-link {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+  opacity: 0.2;
+}
+.github-logo-link:hover {
+  opacity: 1;
+}

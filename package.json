@@ -1,0 +1,47 @@
+{
+	"name":"three-tba",
+	"description":"Three.js Retargeting Animation And Binary Format(TBA). ~16% the size of a JSON file.",
+	"version":"0.1.0",
+	"type":"module",
+	"module": "./src/TBALoader.js",
+	"main":"./src/TBALoader.js",
+	"scripts":{
+		"dev":"vite",
+		"build":"vite build",
+		"preview":"vite preview"
+	},
+	"repository": {
+		"type":"git",
+		"url":"https://github.com/sunag/three.js-tba"
+	},
+	"directories": {
+		"conversor": "conversor"
+	},
+	"files": [
+		"dist",
+		"src",
+		"conversor"
+	],
+	"keywords": [
+		"threejs",
+		"tba",
+		"retargeting",
+		"animation",
+		"binary"
+	],
+	"author": "sunag",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/sunag/three.js-tba/issues"
+	},
+	"devDependencies":{
+		"tweakpane":"^4.0.5",
+		"vite":"^7.0.0",
+		"vite-plugin-monaco-editor":"^1.1.0"
+	},
+	"dependencies":{
+		"fflate":"^0.8.2",
+		"@msgpack/msgpack":"^3.1.2",
+		"three":"^0.178.0"
+	}
+}

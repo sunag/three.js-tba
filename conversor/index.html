@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Three.js Retargeting Animation</title>
+		<!-- SEO Meta Tags -->
+		<meta name="description" content="Convert FBX animations to Three.js Binary Animation (TBA) format quickly, compactly, and efficiently. Reduce animation file sizes by up to 84% and optimize your 3D projects with easy retargeting and instant download." />
+		<meta name="keywords" content="three.js, TBA, binary animation, converter, FBX, GLB, retargeting, 3D animation, animation compression, Mixamo, Ready Player Me, web3d, optimization" />
+		<meta name="author" content="sunag" />
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://github.com/sunag/three.js-tba" />
+		<meta property="og:title" content="Three.js Binary Animation (TBA) Converter" />
+		<meta property="og:description" content="Convert FBX animations to Three.js Binary Animation (TBA) format quickly, compactly, and efficiently. Reduce animation file sizes by up to 84% and optimize your 3D projects with easy retargeting and instant download." />
+		<meta property="og:image" content="./image.png" />
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content="https://github.com/sunag/three.js-tba" />
+		<meta name="twitter:title" content="Three.js Binary Animation (TBA) Converter" />
+		<meta name="twitter:description" content="Convert FBX animations to Three.js Binary Animation (TBA) format quickly, compactly, and efficiently. Reduce animation file sizes by up to 84% and optimize your 3D projects with easy retargeting and instant download." />
+		<meta name="twitter:image" content="./image.png" />
+		<!-- Code -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="./styles/main.css" />
+		<link rel="stylesheet" href="./styles/github-logo.css" />
+		<link rel="stylesheet" href="./styles/modal-tutorial.css" />
+	</head>
+	<body>
+		<main>
+			<div class="canvas-container" id="canvas-container">
+				<div class="view-toggle switch-3d" id="view-toggle">
+					<div class="view-toggle-switch"></div>
+					<button id="view-3d-btn" class="view-btn active">3D</button>
+					<button id="view-code-btn" class="view-btn">CODE</button>
+				</div>
+				<div class="player-container">
+					<button id="play-btn" class="player-btn">
+						<i class="ti ti-player-play-filled"></i>
+					</button>
+					<button id="stop-btn" class="player-btn">
+						<i class="ti ti-player-stop-filled"></i>
+					</button>
+					<div class="timeline-container">
+						<input type="range" id="timeline" min="0" max="100" value="0" step="1" />
+					</div>
+				</div>
+				<!-- Short description below 3D/CODE switch -->
+				<div class="tba-description">
+					Create your Three.js Binary Animation(TBA) file. It is a binary file generated from retargeting animation, with only ~16% the size of a JSON file.
+				</div>
+				<div id="dropzone" class="dropzone">
+					<div id="dropzone-overlay" class="dropzone-overlay">
+						<div class="dropzone-content">
+							<i id="dropzone-upload-icon" class="ti ti-upload" style="font-size: 64px; color: #fff;"></i>
+						</div>
+					</div>
+				</div>
+				<!-- Canvas for 3D rendering -->
+				<div id="canvas3d-container" class="canvas3d-container">
+				   <canvas id="canvas3d"></canvas>
+			   </div>
+				<!-- GitHub Logo Button -->
+				<a href="https://github.com/sunag/three.js-tba" class="github-logo-link" target="_blank" title="GitHub" rel="noopener">
+					<svg viewBox="0 0 98 96" width="44" height="44" aria-hidden="true">
+						<path fill="#fff" fill-rule="evenodd" clip-rule="evenodd"
+							d="M49 0C21.9 0 0 21.8 0 48.7c0 21.5 13.8 39.7 33 46.1 2.4.4 3.3-1 3.3-2.3 0-1.1 0-4.1 0-8-13.4 2.9-16.2-6.5-16.2-6.5-2.2-5.5-5.3-7-5.3-7-4.3-2.9.3-2.8.3-2.8 4.7.3 7.2 4.8 7.2 4.8 4.2 7.2 11 5.1 13.7 3.9.4-3 1.6-5.1 2.9-6.3-10.7-1.2-21.9-5.3-21.9-23.7 0-5.2 1.9-9.4 4.8-12.7-.5-1.2-2.1-6.1.5-12.7 0 0 4-1.3 13.2 4.8 3.8-1.1 7.8-1.6 11.8-1.6s8 .5 11.8 1.6c9.2-6.1 13.2-4.8 13.2-4.8 2.6 6.6 1 11.5.5 12.7 3 3.3 4.8 7.5 4.8 12.7 0 18.5-11.2 22.5-21.9 23.7 1.7 1.5 3.1 4.4 3.1 8.8 0 6.3 0 11.3 0 12.8 0 1.3.9 2.7 3.3 2.3C84.2 88.4 98 70.2 98 48.7 98 21.8 76.1 0 49 0z"/>
+					</svg>
+				</a>
+			</div>
+	   <div class="panel-container" id="panel-container"></div>
+	   <div id="code-container" class="code-container" style="display: none;"></div>
+	   <!-- Tutorial Modal -->
+	   <div class="modal-tutorial-overlay" id="modal-tutorial-overlay" style="display:none;">
+		   <div class="modal-tutorial">
+			   <button class="modal-close-btn" title="Close" onclick="document.getElementById('modal-tutorial-overlay').style.display='none'">&times;</button>
+			   <h2>How to Convert Animations</h2>
+			   <p>To convert your animation, follow these steps:</p>
+			   <ul>
+				  <li><b>1. Drag and drop the <span style='color:#ffb300'>Source</span> file</b> (the animation FBX exported from <a href="https://www.mixamo.com" target="_blank" style="color:#ffb300;text-decoration:underline;">Mixamo</a>).</li>
+				  <li><b>2. Drag and drop the <span style='color:#4caf50'>Target</span> file</b> (the character GLB exported from <a href="https://readyplayer.me/avatar" target="_blank" style="color:#4caf50;text-decoration:underline;">Ready Player Me</a>). <span style="color:#888">(Optional)</span></li>
+				  <li><b>3. Click the <span style='color:#2196f3'>Download</span> button</b> to download the converted animation as a TBA file.</li>
+			   </ul>
+		   </div>
+	   </div>
+   </main>
+	   <script type="module">
+
+			import Main from './src/Main.js';
+
+			new Main();
+
+	   </script>
+	</body>
+</html>

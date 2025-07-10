@@ -1,0 +1,49 @@
+/* Modal tutorial styles */
+.modal-tutorial-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-tutorial {
+  background: #232323;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  padding: 32px 28px 24px 28px;
+  max-width: 420px;
+  width: 90%;
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+  position: relative;
+}
+.modal-tutorial h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.modal-tutorial ul {
+  margin: 18px 0 0 0;
+  padding-left: 20px;
+}
+.modal-tutorial li {
+  margin-bottom: 20px;
+  font-size: 1.08em;
+}
+.modal-tutorial .modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-tutorial .modal-close-btn:hover {
+  color: #ffb300;
+}
